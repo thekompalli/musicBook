@@ -1,0 +1,37 @@
+<div class="container mt-5">
+    <div class="col-md-12">
+        <div class="card border-0">
+            <form [formGroup] = "musicForm" (ngSubmit) = "onSubmit()">
+                <div class="form-group">
+                  <label for="name">Song Name</label>
+                  <input type="text" class="form-control" id="name" formControlName = "name" placeholder="Enter Song Name">
+                  <div *ngIf="musicForm.get('name').touched && musicForm.get('name').invalid" class="alert alert-danger">
+                    <div *ngIf="musicForm.get('name').errors.required">Name is required.</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="genre">Genre</label>
+                  <input type="text" class="form-control" id="genre" formControlName = "genre" placeholder="Genre">
+                </div>
+                <div class="form-group">
+                  <label for="artist">Artist</label>
+                  <input type="text" class="form-control" id="artist" formControlName = "artist" placeholder="Artist">
+                </div>
+                <div class="form-group">
+                  <label for="url">Song URL</label>
+                  <input type="text" class="form-control" id="url" formControlName = "url" placeholder="Please paste the url">
+                  <div *ngIf="musicForm.get('url').touched && musicForm.get('url').invalid" class="alert alert-danger">
+                    <div *ngIf="musicForm.get('url').errors.required">URL is required.</div>
+                    <div *ngIf="musicForm.get('url').errors.pattern">Please enter valid url.</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label for="desc">Description</label>
+                    <textarea class="form-control" formControlName = "description" id="desc" rows="3"></textarea>
+                  </div>
+              
+                <button type="submit" [disabled]="!musicForm.valid" class="btn btn-info">Submit</button>
+              </form>
+        </div>
+    </div>
+</div>
