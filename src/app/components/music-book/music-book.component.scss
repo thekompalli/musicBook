@@ -11,3 +11,12 @@
        cursor: pointer;
    }
 }
+@media(max-width: 600px){
+    .info{
+        margin-left: 10%;
+        p{
+           margin-top: 10%;
+            margin-right: 27%;
+        }
+    }
+}
